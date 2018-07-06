@@ -26,7 +26,7 @@ public class ProdutoController
 
             ProdutoDAO dao = new ProdutoDAO(); //alterar
             List<Produto> objetos = dao.selecionar(); // alterar
-            Object colunas[] = new Object[6]; //alterar o índice de acordo com o número de campos exibidos 
+            Object colunas[] = new Object[7]; //alterar o índice de acordo com o número de campos exibidos 
             
             //MarcaDAO dao1 = new MarcaDAO();
             //List<Marca> obj = dao1.selecionar();
@@ -40,6 +40,7 @@ public class ProdutoController
                     colunas[3] = objeto.getPreco();
                     colunas[4] = objeto.getQuantidade_minima();
                     colunas[5] = objeto.getDescricaoMarca();
+                    colunas[6] = objeto.getCodigo_marca();
                     
                     model.addRow(colunas);
                 }
@@ -79,7 +80,7 @@ public class ProdutoController
         String estoque = tela.tabela.getValueAt(linhaSelecionada, 2).toString(); //está na coluna 0
         String preco = tela.tabela.getValueAt(linhaSelecionada, 3).toString(); //está na coluna 0
         String quantidade_minima = tela.tabela.getValueAt(linhaSelecionada, 4).toString(); //está na coluna 0
-        String codigo_marca = tela.tabela.getValueAt(linhaSelecionada, 5).toString();
+        int codigo_marca = Integer.parseInt(tela.tabela.getValueAt(linhaSelecionada, 6).toString());
         
         
 
@@ -89,7 +90,15 @@ public class ProdutoController
         tela.jtfEstoque.setText(estoque);
         tela.jtfPreco.setText(preco);
         tela.jtfQuantidade_minima.setText(quantidade_minima);
-        tela.jcbMarca.setSelectedItem(codigo_marca);
+        
+        for(int i=0; i<tela.jcbMarca.getItemCount();i++)
+        {
+            if (tela.jcbMarca.getItemAt(i).getCodigo() == codigo_marca){
+                tela.jcbMarca.setSelectedIndex(i);
+                break;
+            }
+        }
+        //tela.jcbMarca.setSelectedItem(codigo_marca);
         
 
         // habilita/desabilita botões
@@ -142,7 +151,7 @@ public class ProdutoController
         Integer codigo = Integer.parseInt(tela.jtfCodigo.getText().trim());
         String nome = tela.jtfNome.getText().trim();
         int estoque = Integer.parseInt(tela.jtfEstoque.getText().trim());
-        double preco = Double.parseDouble(tela.jtfEstoque.getText().trim());
+        double preco = Double.parseDouble(tela.jtfPreco.getText().trim());
         int quantidade_minima = Integer.parseInt(tela.jtfQuantidade_minima.getText().trim());
         int codigo_marca = ((Marca)tela.jcbMarca.getSelectedItem()).getCodigo();
         
@@ -155,7 +164,7 @@ public class ProdutoController
         objeto.setEstoque(estoque);
         objeto.setPreco(preco);
         objeto.setQuantidade_minima(quantidade_minima);
-      
+        objeto.setCodigo_marca(codigo_marca);
 
         //alterar:: alterando o objeto no banco de dados
         ProdutoDAO dao = new ProdutoDAO(); //alterar
@@ -223,15 +232,17 @@ public class ProdutoController
      */
     public static void limparCampos(ProdutoView tela) {
         //alterar:: limpando os campos
+        
         tela.jtfCodigo.setText("");
         tela.jtfNome.setText("");
         tela.jtfEstoque.setText("");
         tela.jtfPreco.setText("");
         tela.jtfQuantidade_minima.setText("");
+        tela.jcbMarca.setSelectedIndex(0);
 
         //habilitando/desabilitando os botões
         tela.jbtAdicionar.setEnabled(true);
-        tela.jbtAlterar.setEnabled(true);
-        tela.jbtExcluir.setEnabled(true);
+        tela.jbtAlterar.setEnabled(false);
+        tela.jbtExcluir.setEnabled(false);
     }
 }

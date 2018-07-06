@@ -1,7 +1,11 @@
 
 package model;
 
-import java.sql.Date;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Logger;
 
 
 public class Pedido 
@@ -25,6 +29,17 @@ public class Pedido
 
     public void setPrevisao_entrega(Date previsao_entrega) {
         this.previsao_entrega = previsao_entrega;
+    }
+    public void setPrevisao_entrega(String previsao_entrega)
+    {
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        try{
+            setPrevisao_entrega(format.parse(previsao_entrega));
+        }catch(ParseException ex)
+        {
+            Logger.getLogger("erro na data");
+            
+        }
     }
 
     public Date getData_hora() {

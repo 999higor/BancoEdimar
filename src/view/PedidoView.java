@@ -18,6 +18,7 @@ public class PedidoView extends javax.swing.JFrame {
      */
     public PedidoView() {
         initComponents();
+        PedidoController.atualizaTabela(tabela);
         PedidoController.AtualizaComboBox(jcbFornecedor);
     }
 
@@ -69,6 +70,7 @@ public class PedidoView extends javax.swing.JFrame {
             }
         });
 
+        jtfDataHora.setEditable(false);
         jtfDataHora.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfDataHoraActionPerformed(evt);

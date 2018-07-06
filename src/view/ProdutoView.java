@@ -19,8 +19,10 @@ public class ProdutoView extends javax.swing.JFrame {
      */
     public ProdutoView() {
         initComponents();
+      
         ProdutoController.atualizaTabela(tabela);
         ProdutoController.AtualizaComboBox(jcbMarca);
+        ProdutoController.limparCampos(this);
     }
 
     /**
@@ -66,6 +68,7 @@ public class ProdutoView extends javax.swing.JFrame {
 
         jLabel6.setText("QUANTIDADE MINIMA");
 
+        jtfCodigo.setEditable(false);
         jtfCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfCodigoActionPerformed(evt);
@@ -126,17 +129,17 @@ public class ProdutoView extends javax.swing.JFrame {
 
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "CODIGO", "NOME", "ESTOQUE", "PREÇO", "MINIMO", "MARCA"
+                "CODIGO", "NOME", "ESTOQUE", "PREÇO", "MINIMO", "MARCA", "COD_MARCA"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -150,7 +153,6 @@ public class ProdutoView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabela);
 
-        jcbMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jcbMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbMarcaActionPerformed(evt);
@@ -168,38 +170,36 @@ public class ProdutoView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel6))
-                                        .addComponent(jbtAdicionar))
-                                    .addComponent(jLabel7))
-                                .addGap(32, 32, 32)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jcbMarca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jtfCodigo)
-                                    .addComponent(jtfNome)
-                                    .addComponent(jtfEstoque)
-                                    .addComponent(jtfPreco)
-                                    .addComponent(jtfQuantidade_minima)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jbtLimpar)
-                                        .addGap(50, 50, 50)
-                                        .addComponent(jbtExcluir)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
-                                        .addComponent(jbtAlterar))))))
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel6))
+                                .addComponent(jbtAdicionar))
+                            .addComponent(jLabel7))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jcbMarca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jtfCodigo)
+                            .addComponent(jtfNome)
+                            .addComponent(jtfEstoque)
+                            .addComponent(jtfPreco)
+                            .addComponent(jtfQuantidade_minima)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jbtLimpar)
+                                .addGap(50, 50, 50)
+                                .addComponent(jbtExcluir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                                .addComponent(jbtAlterar))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(224, 224, 224)
-                        .addComponent(jLabel1)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -345,7 +345,7 @@ public class ProdutoView extends javax.swing.JFrame {
     public javax.swing.JButton jbtAlterar;
     public javax.swing.JButton jbtExcluir;
     public javax.swing.JButton jbtLimpar;
-    public javax.swing.JComboBox<String> jcbMarca;
+    public javax.swing.JComboBox<Marca> jcbMarca;
     public javax.swing.JTextField jtfCodigo;
     public javax.swing.JTextField jtfEstoque;
     public javax.swing.JTextField jtfNome;

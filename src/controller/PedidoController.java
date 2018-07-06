@@ -5,6 +5,7 @@ package controller;
 import dao.FornecedorDAO;
 import dao.PedidoDAO;
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -33,8 +34,11 @@ public class PedidoController
                 for (Pedido objeto : objetos) {//alterar a classe
                     //alterar definir o que vai em cada linha - 1 linha para cada atributo exibido na tabela
                     colunas[0] = objeto.getNumero();  //alterar
-                    colunas[1] = objeto.getPrevisao_entrega(); //alterar
-                    colunas[2] = objeto.getData_hora();
+                    SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+                    colunas[1] = format.format(objeto.getPrevisao_entrega()); //alterar
+                    format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                    System.out.println("aki:"+objeto.getData_hora());
+                    colunas[2] = format.format(objeto.getData_hora());
                     
                     
                     model.addRow(colunas);
@@ -99,8 +103,7 @@ public class PedidoController
 
         //alterar:: obtendo os valores preenchidos
         
-        Date previsao_entrega = Date.valueOf(tela.jtfPrevisao.getText().trim());
-        Date data_hora = Date.valueOf(tela.jtfDataHora.getText().trim());
+        String previsao_entrega = (tela.jtfPrevisao.getText().trim());
         
         int codigo_fornecedor = ((Fornecedor)tela.jcbFornecedor.getSelectedItem()).getCodigo();
         
@@ -109,7 +112,7 @@ public class PedidoController
         Pedido objeto = new Pedido();
         
         objeto.setPrevisao_entrega(previsao_entrega);
-        objeto.setData_hora(data_hora);
+        
         
         objeto.setCodigo_fornecedor(codigo_fornecedor);
         //alterar:: adicionando o objeto no banco de dados

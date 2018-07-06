@@ -85,7 +85,7 @@ public class ProdutoDAO
     }
 
     public List<Produto> selecionar() {
-        String sql = "SELECT p.codigo ,p.nome AS nome ,p.preco ,p.quantidade_minima ,p.estoque, m.descricao AS marca FROM produto p JOIN marca m ON m.codigo = p.codigo_marca ORDER BY nome"; //alterar tabela e atributos
+        String sql = "SELECT p.codigo ,p.nome AS nome ,p.preco ,p.quantidade_minima ,p.estoque, m.descricao AS marca, m.codigo AS CodMarca FROM produto p JOIN marca m ON m.codigo = p.codigo_marca ORDER BY nome"; //alterar tabela e atributos
 
         try {
             Statement stmt = Conexao.getConexao().createStatement();
@@ -102,6 +102,7 @@ public class ProdutoDAO
                 objeto.setQuantidade_minima(rs.getInt("quantidade_minima"));
                 objeto.setEstoque(rs.getInt("estoque"));
                 objeto.setDescricaoMarca(rs.getString("marca"));
+                objeto.setCodigo_marca(rs.getInt("CodMarca"));
                 
                 
                 lista.add(objeto);
