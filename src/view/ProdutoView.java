@@ -11,10 +11,7 @@ import java.util.List;
 import javax.swing.JComboBox;
 import model.Marca;
 
-/**
- *
- * @author Administrador
- */
+
 public class ProdutoView extends javax.swing.JFrame {
 
     /**

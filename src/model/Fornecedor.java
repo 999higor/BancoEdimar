@@ -6,7 +6,7 @@ public class Fornecedor
 {
     private int codigo;
     private String nome_fornecedor;
-    private Long telefone;
+    private String telefone;
     private int codigo_marca;
 
     public int getCodigo() {
@@ -25,11 +25,11 @@ public class Fornecedor
         this.nome_fornecedor = nome_fornecedor;
     }
 
-    public Long getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(Long telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
@@ -41,6 +41,8 @@ public class Fornecedor
         this.codigo_marca = codigo_marca;
     }
     
-    
+    public String toString() {
+        return nome_fornecedor;
+    }
     
 }
