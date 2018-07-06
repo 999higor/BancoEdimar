@@ -18,6 +18,7 @@ import view.ProdutoView;
 
 public class ProdutoController 
 {
+    
     public static void atualizaTabela(JTable tabela) {
         removeLinhasTabela(tabela);
         try {
@@ -25,7 +26,7 @@ public class ProdutoController
 
             ProdutoDAO dao = new ProdutoDAO(); //alterar
             List<Produto> objetos = dao.selecionar(); // alterar
-            Object colunas[] = new Object[5]; //alterar o índice de acordo com o número de campos exibidos 
+            Object colunas[] = new Object[6]; //alterar o índice de acordo com o número de campos exibidos 
             
             //MarcaDAO dao1 = new MarcaDAO();
             //List<Marca> obj = dao1.selecionar();
@@ -35,10 +36,10 @@ public class ProdutoController
                     //alterar definir o que vai em cada linha - 1 linha para cada atributo exibido na tabela
                     colunas[0] = objeto.getCodigo();  //alterar
                     colunas[1] = objeto.getNome(); //alterar
-                    colunas[2] = objeto.getPreco();
-                    colunas[3] = objeto.getEstoque();
+                    colunas[2] = objeto.getEstoque();
+                    colunas[3] = objeto.getPreco();
                     colunas[4] = objeto.getQuantidade_minima();
-                    
+                    colunas[5] = objeto.getDescricaoMarca();
                     
                     model.addRow(colunas);
                 }
@@ -143,7 +144,7 @@ public class ProdutoController
         int estoque = Integer.parseInt(tela.jtfEstoque.getText().trim());
         double preco = Double.parseDouble(tela.jtfEstoque.getText().trim());
         int quantidade_minima = Integer.parseInt(tela.jtfQuantidade_minima.getText().trim());
-        //int codigo_marca = Integer.parseInt(tela.jcbMarca.getSelectedItem());
+        int codigo_marca = ((Marca)tela.jcbMarca.getSelectedItem()).getCodigo();
         
         
 

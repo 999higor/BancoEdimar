@@ -45,16 +45,19 @@ public class ProdutoDAO
     public boolean alterar(Produto objeto) {
         try {
             String sql = " UPDATE produto "
-                    + "    SET nome = ?, estoque = ?, preco = ?, quantidade_minima = ?"
+                    + "    SET nome = ?, estoque = ?, preco = ?, quantidade_minima = ?,codigo_marca = ?"
                     + "  WHERE codigo = ? "; //alterar tabela, atributos e chave primária
 
             PreparedStatement pstmt = Conexao.getConexao().prepareStatement(sql);
 
             //definindo as interrogações (uma linha para cada ? do SQL)
+            
             pstmt.setString(1, objeto.getNome());
             pstmt.setInt(2, objeto.getEstoque());
             pstmt.setDouble(3,objeto.getPreco());
             pstmt.setInt(4,objeto.getQuantidade_minima());
+            pstmt.setInt(5, objeto.getCodigo_marca());
+            pstmt.setInt(6, objeto.getCodigo());
 
             if (pstmt.executeUpdate() == 1) {
                 return true;
@@ -82,7 +85,7 @@ public class ProdutoDAO
     }
 
     public List<Produto> selecionar() {
-        String sql = "SELECT codigo ,nome ,preco ,quantidade_minima ,estoque FROM produto ORDER BY nome"; //alterar tabela e atributos
+        String sql = "SELECT p.codigo ,p.nome AS nome ,p.preco ,p.quantidade_minima ,p.estoque, m.descricao AS marca FROM produto p JOIN marca m ON m.codigo = p.codigo_marca ORDER BY nome"; //alterar tabela e atributos
 
         try {
             Statement stmt = Conexao.getConexao().createStatement();
@@ -98,7 +101,7 @@ public class ProdutoDAO
                 objeto.setPreco(rs.getDouble("preco"));
                 objeto.setQuantidade_minima(rs.getInt("quantidade_minima"));
                 objeto.setEstoque(rs.getInt("estoque"));
-                
+                objeto.setDescricaoMarca(rs.getString("marca"));
                 
                 
                 lista.add(objeto);

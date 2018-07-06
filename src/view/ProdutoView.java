@@ -19,6 +19,7 @@ public class ProdutoView extends javax.swing.JFrame {
      */
     public ProdutoView() {
         initComponents();
+        ProdutoController.atualizaTabela(tabela);
         ProdutoController.AtualizaComboBox(jcbMarca);
     }
 
@@ -140,6 +141,11 @@ public class ProdutoView extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        tabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tabela);
@@ -282,6 +288,11 @@ public class ProdutoView extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jcbMarcaActionPerformed
+
+    private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
+        // TODO add your handling code here:
+        ProdutoController.atualizaCampos(this);
+    }//GEN-LAST:event_tabelaMouseClicked
 
     /**
      * @param args the command line arguments

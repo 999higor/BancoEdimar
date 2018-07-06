@@ -10,6 +10,7 @@ public class Produto
     private double preco;
     private int quantidade_minima;
     private int codigo_marca;
+    private String descricaoMarca;
 
     public String getNome() {
         return nome;
@@ -57,6 +58,14 @@ public class Produto
 
     public void setCodigo_marca(int codigo_marca) {
         this.codigo_marca = codigo_marca;
+    }
+
+    public String getDescricaoMarca() {
+        return descricaoMarca;
+    }
+
+    public void setDescricaoMarca(String descricaoMarca) {
+        this.descricaoMarca = descricaoMarca;
     }
     
         
