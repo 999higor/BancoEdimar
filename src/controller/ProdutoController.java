@@ -25,8 +25,11 @@ public class ProdutoController
 
             ProdutoDAO dao = new ProdutoDAO(); //alterar
             List<Produto> objetos = dao.selecionar(); // alterar
-            Object colunas[] = new Object[5]; //alterar o índice de acordo com o número de campos exibidos      
-
+            Object colunas[] = new Object[5]; //alterar o índice de acordo com o número de campos exibidos 
+            
+            //MarcaDAO dao1 = new MarcaDAO();
+            //List<Marca> obj = dao1.selecionar();
+            
             if (!objetos.isEmpty()) {
                 for (Produto objeto : objetos) {//alterar a classe
                     //alterar definir o que vai em cada linha - 1 linha para cada atributo exibido na tabela
@@ -103,7 +106,7 @@ public class ProdutoController
         //alterar:: obtendo os valores preenchidos
         String nome = tela.jtfNome.getText().trim();
         int estoque = Integer.parseInt(tela.jtfEstoque.getText().trim());
-        double preco = Double.parseDouble(tela.jtfEstoque.getText().trim());
+        double preco = Double.parseDouble(tela.jtfPreco.getText().trim());
         int quantidade_minima = Integer.parseInt(tela.jtfQuantidade_minima.getText().trim());
         int cod_marca = ((Marca)tela.jcbMarca.getSelectedItem()).getCodigo();
         
@@ -227,7 +230,7 @@ public class ProdutoController
 
         //habilitando/desabilitando os botões
         tela.jbtAdicionar.setEnabled(true);
-        tela.jbtAlterar.setEnabled(false);
-        tela.jbtExcluir.setEnabled(false);
+        tela.jbtAlterar.setEnabled(true);
+        tela.jbtExcluir.setEnabled(true);
     }
 }
