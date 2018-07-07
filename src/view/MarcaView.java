@@ -14,6 +14,8 @@ public class MarcaView extends javax.swing.JFrame {
      */
     public MarcaView() {
         initComponents();
+        MarcaController.atualizaTabela(tabela);
+        MarcaController.limparCampos(this);
     }
 
     /**
@@ -59,7 +61,20 @@ public class MarcaView extends javax.swing.JFrame {
             new String [] {
                 "CÓDIGO", "DESCRIÇÃO"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabela);
 
         jbtAdicionar.setText("ADICIONAR");
@@ -92,6 +107,7 @@ public class MarcaView extends javax.swing.JFrame {
 
         codigo.setText("CÓDIGO");
 
+        jtfCodigo.setEditable(false);
         jtfCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfCodigoActionPerformed(evt);
@@ -182,6 +198,11 @@ public class MarcaView extends javax.swing.JFrame {
         // TODO add your handling code here:
         MarcaController.excluir(this);
     }//GEN-LAST:event_jbtExcluirActionPerformed
+
+    private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
+        // TODO add your handling code here:
+        MarcaController.atualizaCampos(this);
+    }//GEN-LAST:event_tabelaMouseClicked
 
     /**
      * @param args the command line arguments
