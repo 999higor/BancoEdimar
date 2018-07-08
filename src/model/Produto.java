@@ -11,6 +11,9 @@ public class Produto
     private int quantidade_minima;
     private int codigo_marca;
     private String descricaoMarca;
+    
+    private int entradaEstoque;
+    private int baixaEstoque;
 
     public String getNome() {
         return nome;
@@ -67,7 +70,20 @@ public class Produto
     public void setDescricaoMarca(String descricaoMarca) {
         this.descricaoMarca = descricaoMarca;
     }
-    
-        
-    
+
+    public int getEntradaEstoque() {
+        return entradaEstoque;
+    }
+
+    public void setEntradaEstoque(int entradaEstoque) {
+        this.entradaEstoque = entradaEstoque;
+    }
+
+    public int getBaixaEstoque() {
+        return baixaEstoque;
+    }
+
+    public void setBaixaEstoque(int baixaEstoque) {
+        this.baixaEstoque = baixaEstoque;
+    }
 }
