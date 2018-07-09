@@ -24,7 +24,7 @@ public class FornecedorController
 
             FornecedorDAO dao = new FornecedorDAO(); //alterar
             List<Fornecedor> objetos = dao.selecionar(); // alterar
-            Object colunas[] = new Object[4]; //alterar o índice de acordo com o número de campos exibidos 
+            Object colunas[] = new Object[5]; //alterar o índice de acordo com o número de campos exibidos 
             
             //MarcaDAO dao1 = new MarcaDAO();
             //List<Marca> obj = dao1.selecionar();
@@ -35,7 +35,8 @@ public class FornecedorController
                     colunas[0] = objeto.getCodigo();  //alterar
                     colunas[1] = objeto.getNome_fornecedor(); //alterar
                     colunas[2] = objeto.getTelefone();
-                    colunas[3] = objeto.getCodigo_marca();                                       
+                    colunas[3] = objeto.getDescricaoMarca();
+                    colunas[4] = objeto.getCodigo_marca();                                       
                     
                     model.addRow(colunas);
                 }

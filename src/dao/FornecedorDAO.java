@@ -72,7 +72,7 @@ public class FornecedorDAO
     }
 
     public List<Fornecedor> selecionar() {
-        String sql = "SELECT codigo, nome_fornecedor ,telefone ,codigo_marca FROM fornecedor ORDER BY nome_fornecedor"; //alterar tabela e atributos
+        String sql = "SELECT f.codigo, f.nome_fornecedor ,f.telefone ,m.descricao AS marca ,f.codigo_marca FROM fornecedor f JOIN marca m ON m.codigo = f.codigo_marca ORDER BY nome_fornecedor"; //alterar tabela e atributos
 
         try {
             Statement stmt = Conexao.getConexao().createStatement();
@@ -86,6 +86,7 @@ public class FornecedorDAO
                 objeto.setNome_fornecedor(rs.getString("nome_fornecedor"));  //alterar
                 objeto.setTelefone(rs.getString("telefone"));
                 objeto.setCodigo_marca(rs.getInt("codigo_marca"));
+                objeto.setDescricaoMarca(rs.getString("marca"));
                 
                 lista.add(objeto);
             }

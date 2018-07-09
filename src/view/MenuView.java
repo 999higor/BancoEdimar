@@ -121,7 +121,7 @@ public class MenuView extends javax.swing.JFrame {
                 .addContainerGap(83, Short.MAX_VALUE))
         );
 
-        setBounds(0, 0, 636, 485);
+        setBounds(320, 120, 640, 490);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtProdutoActionPerformed

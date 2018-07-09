@@ -4,6 +4,7 @@ package controller;
 
 import dao.FornecedorDAO;
 import dao.PedidoDAO;
+import dao.ProdutoDAO;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -13,6 +14,7 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import model.Fornecedor;
 import model.Pedido;
+import model.Produto;
 import view.PedidoView;
 
 
@@ -25,7 +27,7 @@ public class PedidoController
 
             PedidoDAO dao = new PedidoDAO(); //alterar
             List<Pedido> objetos = dao.selecionar(); // alterar
-            Object colunas[] = new Object[3]; //alterar o índice de acordo com o número de campos exibidos 
+            Object colunas[] = new Object[6]; //alterar o índice de acordo com o número de campos exibidos 
             
             //MarcaDAO dao1 = new MarcaDAO();
             //List<Marca> obj = dao1.selecionar();
@@ -37,8 +39,10 @@ public class PedidoController
                     SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
                     colunas[1] = format.format(objeto.getPrevisao_entrega()); //alterar
                     format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-                    System.out.println("aki:"+objeto.getData_hora());
+                    //System.out.println("aki:"+objeto.getData_hora());
                     colunas[2] = format.format(objeto.getData_hora());
+                    colunas[3] = objeto.getCodigo_fornecedor();
+                    colunas[4] = objeto.getDescricaoProduto();
                     
                     
                     model.addRow(colunas);
@@ -58,8 +62,17 @@ public class PedidoController
         {
             cbfornecedor.addItem(fornecedor);
             
+        }      
+    }
+    
+    public static void AtualizaComboBoxProduto(JComboBox cbProduto)
+    {
+        cbProduto.removeAllItems();
+        ProdutoDAO dao = new ProdutoDAO();
+        for(Produto produto: dao.selecionar())
+        {
+            cbProduto.addItem(produto);
         }
-        
     }
     public static void removeLinhasTabela(JTable tabela) {
         try {
@@ -77,7 +90,8 @@ public class PedidoController
         String numero = tela.tabela.getValueAt(linhaSelecionada, 0).toString(); //está na coluna 0
         String previsao_entrega = tela.tabela.getValueAt(linhaSelecionada, 1).toString(); //está na coluna 1
         String data_hora = tela.tabela.getValueAt(linhaSelecionada, 2).toString(); //está na coluna 0        
-        String codigo_fornecedor = tela.tabela.getValueAt(linhaSelecionada, 3).toString();
+        int codigo_fornecedor = Integer.parseInt(tela.tabela.getValueAt(linhaSelecionada, 3).toString());
+        int codigo_produto = Integer.parseInt(tela.tabela.getValueAt(linhaSelecionada, 4).toString());
         
         
 
@@ -86,7 +100,22 @@ public class PedidoController
         tela.jtfPrevisao.setText(previsao_entrega);
         tela.jtfDataHora.setText(data_hora);
         
-        tela.jcbFornecedor.setSelectedItem(codigo_fornecedor);
+        //tela.jcbFornecedor.setSelectedItem(codigo_fornecedor);
+        
+          for(int i=0; i<tela.jcbFornecedor.getItemCount();i++)
+        {
+            if (tela.jcbFornecedor.getItemAt(i).getCodigo() == codigo_fornecedor){
+                tela.jcbFornecedor.setSelectedIndex(i);
+                break;
+            }
+        }
+          for(int i=0; i<tela.jcbProduto.getItemCount();i++)
+        {
+            if (tela.jcbProduto.getItemAt(i).getCodigo() == codigo_produto){
+                tela.jcbProduto.setSelectedIndex(i);
+                break;
+            }
+        }
         
 
         // habilita/desabilita botões
@@ -103,18 +132,17 @@ public class PedidoController
 
         //alterar:: obtendo os valores preenchidos
         
-        String previsao_entrega = (tela.jtfPrevisao.getText().trim());
-        
+        String previsao_entrega = (tela.jtfPrevisao.getText().trim());       
         int codigo_fornecedor = ((Fornecedor)tela.jcbFornecedor.getSelectedItem()).getCodigo();
+        int codigo_produto = ((Produto)tela.jcbProduto.getSelectedItem()).getCodigo();
         
         
         //alterar:: criando objeto
         Pedido objeto = new Pedido();
         
-        objeto.setPrevisao_entrega(previsao_entrega);
-        
-        
+        objeto.setPrevisao_entrega(previsao_entrega);              
         objeto.setCodigo_fornecedor(codigo_fornecedor);
+        objeto.setCodigo_produto(codigo_produto);
         //alterar:: adicionando o objeto no banco de dados
         PedidoDAO dao = new PedidoDAO();
         boolean resultado = dao.adicionar(objeto);

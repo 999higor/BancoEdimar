@@ -16,13 +16,14 @@ public class PedidoDAO
 {
     public boolean adicionar(Pedido objeto) { //alterar a classe do parâmetro
         try {
-            String sql = "INSERT INTO pedido (previsao_entrega ,codigo_fornecedor) VALUES (?,?)"; //alterar a tabela, os atributos e o número de interrogações, conforme o número de atributos
+            String sql = "INSERT INTO pedido (previsao_entrega ,codigo_fornecedor ,codigo_produto) VALUES (?,?,?)"; //alterar a tabela, os atributos e o número de interrogações, conforme o número de atributos
 
             PreparedStatement pstmt = Conexao.getConexao().prepareStatement(sql);
             //definindo as interrogações (uma linha para cada ? do SQL)
             pstmt.setDate(1, new Date (objeto.getPrevisao_entrega().getTime())); // alterar o primeiro parâmetro indica a interrogação, começando em 1
             
             pstmt.setInt(2, objeto.getCodigo_fornecedor());
+            pstmt.setInt(3, objeto.getCodigo_produto());
             
             pstmt.executeUpdate(); //executando
             return true;
@@ -35,7 +36,7 @@ public class PedidoDAO
     public boolean alterar(Pedido objeto) {
         try {
             String sql = " UPDATE pedido "
-                    + "    SET previsao_entrega = ?, codigo_fornecedor = ?"
+                    + "    SET previsao_entrega = ?, codigo_fornecedor = ? ,codigo_produto = ?"
                     + "  WHERE codigo = ? "; //alterar tabela, atributos e chave primária
 
             PreparedStatement pstmt = Conexao.getConexao().prepareStatement(sql);
@@ -43,7 +44,8 @@ public class PedidoDAO
             //definindo as interrogações (uma linha para cada ? do SQL)
             pstmt.setDate(1, new Date (objeto.getPrevisao_entrega().getTime()));
            // pstmt.setDate(2, objeto.getData_hora());
-            pstmt.setInt(3,objeto.getCodigo_fornecedor());
+            pstmt.setInt(2,objeto.getCodigo_fornecedor());
+            pstmt.setInt(3,objeto.getCodigo_produto());
 
             if (pstmt.executeUpdate() == 1) {
                 return true;
@@ -71,7 +73,7 @@ public class PedidoDAO
     }
 
     public List<Pedido> selecionar() {
-        String sql = "SELECT numero, previsao_entrega ,data_hora ,codigo_fornecedor FROM pedido ORDER BY data_hora"; //alterar tabela e atributos
+        String sql = "SELECT numero, previsao_entrega ,data_hora ,codigo_fornecedor .codigo_produto FROM pedido ORDER BY data_hora"; //alterar tabela e atributos
 
         try {
             Statement stmt = Conexao.getConexao().createStatement();
@@ -85,6 +87,7 @@ public class PedidoDAO
                 objeto.setPrevisao_entrega(rs.getDate("previsao_entrega"));  //alterar
                 objeto.setData_hora(rs.getTimestamp("data_hora"));
                 objeto.setCodigo_fornecedor(rs.getInt("codigo_fornecedor"));
+                objeto.setCodigo_produto(rs.getInt("codigo_produto"));
                 
                 lista.add(objeto);
             }

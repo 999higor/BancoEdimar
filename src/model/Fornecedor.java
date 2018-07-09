@@ -8,6 +8,8 @@ public class Fornecedor
     private String nome_fornecedor;
     private String telefone;
     private int codigo_marca;
+    
+    private String descricaoMarca;
 
     public int getCodigo() {
         return codigo;
@@ -44,5 +46,15 @@ public class Fornecedor
     public String toString() {
         return nome_fornecedor;
     }
+
+    public String getDescricaoMarca() {
+        return descricaoMarca;
+    }
+
+    public void setDescricaoMarca(String descricaoMarca) {
+        this.descricaoMarca = descricaoMarca;
+    }
+    
+    
     
 }

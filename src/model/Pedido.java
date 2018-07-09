@@ -14,6 +14,9 @@ public class Pedido
     private Date previsao_entrega;
     private Date data_hora;
     private int codigo_fornecedor;
+    private int codigo_produto;
+    
+    private String descricaoProduto;
 
     public int getNumero() {
         return numero;
@@ -56,6 +59,22 @@ public class Pedido
 
     public void setCodigo_fornecedor(int codigo_fornecedor) {
         this.codigo_fornecedor = codigo_fornecedor;
+    }
+
+    public int getCodigo_produto() {
+        return codigo_produto;
+    }
+
+    public void setCodigo_produto(int codigo_produto) {
+        this.codigo_produto = codigo_produto;
+    }
+
+    public String getDescricaoProduto() {
+        return descricaoProduto;
+    }
+
+    public void setDescricaoProduto(String descricaoProduto) {
+        this.descricaoProduto = descricaoProduto;
     }
     
     
