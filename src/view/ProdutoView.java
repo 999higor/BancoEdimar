@@ -6,7 +6,6 @@
 package view;
 
 import controller.ProdutoController;
-import dao.MarcaDAO;
 import java.util.List;
 import javax.swing.JComboBox;
 import model.Marca;

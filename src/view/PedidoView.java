@@ -6,7 +6,6 @@
 package view;
 
 import controller.PedidoController;
-import javax.swing.JComboBox;
 import model.Fornecedor;
 import model.Produto;
 
@@ -19,7 +18,8 @@ public class PedidoView extends javax.swing.JFrame {
     /**
      * Creates new form PedidoView
      */
-    public PedidoView() {
+    public PedidoView() 
+    {
         initComponents();
         PedidoController.atualizaTabela(tabela);
         PedidoController.AtualizaComboBox(jcbFornecedor);
@@ -57,14 +57,19 @@ public class PedidoView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
         jLabel1.setText("PEDIDO");
 
-        jLabel2.setText("NUMERO:");
+        jLabel2.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        jLabel2.setText("NÚMERO:");
 
+        jLabel4.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel4.setText("PREVISÃO ENTREGA:");
 
+        jLabel5.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel5.setText("DATA / HORA:");
 
+        jtfNumero.setEditable(false);
         jtfNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jtfNumeroActionPerformed(evt);
@@ -84,6 +89,7 @@ public class PedidoView extends javax.swing.JFrame {
             }
         });
 
+        jbtAdicionar.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jbtAdicionar.setText("ADICIONAR");
         jbtAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +97,7 @@ public class PedidoView extends javax.swing.JFrame {
             }
         });
 
+        jbtLimpar.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jbtLimpar.setText("LIMPAR");
         jbtLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -98,6 +105,7 @@ public class PedidoView extends javax.swing.JFrame {
             }
         });
 
+        jbtAlterar.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jbtAlterar.setText("ALTERAR");
         jbtAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +113,7 @@ public class PedidoView extends javax.swing.JFrame {
             }
         });
 
+        jbtExcluir.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jbtExcluir.setText("EXCLUIR");
         jbtExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,19 +121,34 @@ public class PedidoView extends javax.swing.JFrame {
             }
         });
 
+        tabela.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "NÚMERO", "PREVISÃO", "DATA/HORA", "FORNECEDOR"
+                "NÚMERO", "PREVISÃO", "DATA/HORA", "FORNECEDOR", "PRODUTO"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabela);
 
+        jLabel6.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel6.setText("FORNECEDOR:");
 
         jcbFornecedor.addActionListener(new java.awt.event.ActionListener() {
@@ -133,6 +157,7 @@ public class PedidoView extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel7.setText("PRODUTO");
 
         jcbProduto.addActionListener(new java.awt.event.ActionListener() {
@@ -148,83 +173,76 @@ public class PedidoView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(284, 284, 284)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel3))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel4)
                                     .addComponent(jLabel5)
                                     .addComponent(jLabel2)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jbtAdicionar, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel6))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(32, 32, 32)
-                                        .addComponent(jbtLimpar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jbtAlterar)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jbtExcluir))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jcbProduto, 0, 266, Short.MAX_VALUE)
-                                            .addComponent(jtfNumero)
-                                            .addComponent(jtfPrevisao)
-                                            .addComponent(jtfDataHora)
-                                            .addComponent(jcbFornecedor, 0, 266, Short.MAX_VALUE))))))
-                        .addGap(0, 200, Short.MAX_VALUE))
+                                    .addComponent(jtfPrevisao, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jbtLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jtfDataHora, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                        .addComponent(jcbFornecedor, javax.swing.GroupLayout.Alignment.LEADING, 0, 200, Short.MAX_VALUE)
+                                        .addComponent(jcbProduto, javax.swing.GroupLayout.Alignment.LEADING, 0, 200, Short.MAX_VALUE)
+                                        .addComponent(jbtAdicionar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jbtAlterar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jbtExcluir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jtfNumero, javax.swing.GroupLayout.Alignment.LEADING))))))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 592, Short.MAX_VALUE)))
+                        .addGap(129, 129, 129)
+                        .addComponent(jLabel1)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jtfNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(jtfPrevisao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jtfDataHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jcbFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jcbProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbtAdicionar)
-                    .addComponent(jbtLimpar)
-                    .addComponent(jbtAlterar)
-                    .addComponent(jbtExcluir))
-                .addGap(36, 36, 36)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jtfNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(jtfPrevisao, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                        .addGap(18, 30, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(jtfDataHora, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE))
+                        .addGap(18, 29, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jcbFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jcbProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7))
+                        .addGap(18, 18, 18)
+                        .addComponent(jbtAdicionar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbtAlterar)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbtExcluir)
+                        .addGap(18, 18, 18)
+                        .addComponent(jbtLimpar)
+                        .addGap(10, 10, 10))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())))
         );
 
         pack();
@@ -269,6 +287,11 @@ public class PedidoView extends javax.swing.JFrame {
     private void jcbProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProdutoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbProdutoActionPerformed
+
+    private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
+        // TODO add your handling code here:
+        PedidoController.atualizaCampos(this);
+    }//GEN-LAST:event_tabelaMouseClicked
 
     /**
      * @param args the command line arguments

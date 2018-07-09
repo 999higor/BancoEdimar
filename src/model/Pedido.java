@@ -17,6 +17,7 @@ public class Pedido
     private int codigo_produto;
     
     private String descricaoProduto;
+    private String nomeFornecedor;
 
     public int getNumero() {
         return numero;
@@ -75,6 +76,14 @@ public class Pedido
 
     public void setDescricaoProduto(String descricaoProduto) {
         this.descricaoProduto = descricaoProduto;
+    }
+
+    public String getNomeFornecedor() {
+        return nomeFornecedor;
+    }
+
+    public void setNomeFornecedor(String nomeFornecedor) {
+        this.nomeFornecedor = nomeFornecedor;
     }
     
     

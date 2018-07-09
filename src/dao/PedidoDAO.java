@@ -37,7 +37,7 @@ public class PedidoDAO
         try {
             String sql = " UPDATE pedido "
                     + "    SET previsao_entrega = ?, codigo_fornecedor = ? ,codigo_produto = ?"
-                    + "  WHERE codigo = ? "; //alterar tabela, atributos e chave primária
+                    + "  WHERE numero = ? "; //alterar tabela, atributos e chave primária
 
             PreparedStatement pstmt = Conexao.getConexao().prepareStatement(sql);
 
@@ -58,7 +58,7 @@ public class PedidoDAO
 
     public boolean excluir(Pedido objeto) {
         try {
-            String sql = " DELETE FROM pedido WHERE codigo = ? "; //alterar a tabela e a chave primária no WHERE
+            String sql = " DELETE FROM pedido WHERE numero = ? "; //alterar a tabela e a chave primária no WHERE
 
             PreparedStatement pstmt = Conexao.getConexao().prepareStatement(sql);
             pstmt.setInt(1, objeto.getNumero()); //alterar conforme a chave primária
@@ -73,7 +73,7 @@ public class PedidoDAO
     }
 
     public List<Pedido> selecionar() {
-        String sql = "SELECT numero, previsao_entrega ,data_hora ,codigo_fornecedor .codigo_produto FROM pedido ORDER BY data_hora"; //alterar tabela e atributos
+        String sql = "SELECT p.numero, p.previsao_entrega ,p.data_hora ,p.codigo_fornecedor ,p.codigo_produto, pr.nome AS nomeProduto ,f.nome_fornecedor AS nomeFornecedor FROM pedido p JOIN produto pr ON pr.codigo = p.codigo_produto JOIN fornecedor f ON f.codigo = p.codigo_fornecedor ORDER BY data_hora"; //alterar tabela e atributos
 
         try {
             Statement stmt = Conexao.getConexao().createStatement();
@@ -88,7 +88,8 @@ public class PedidoDAO
                 objeto.setData_hora(rs.getTimestamp("data_hora"));
                 objeto.setCodigo_fornecedor(rs.getInt("codigo_fornecedor"));
                 objeto.setCodigo_produto(rs.getInt("codigo_produto"));
-                
+                objeto.setDescricaoProduto(rs.getString("nomeProduto"));
+                objeto.setNomeFornecedor(rs.getString("nomeFornecedor"));
                 lista.add(objeto);
             }
             stmt.close();

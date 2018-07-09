@@ -27,7 +27,7 @@ public class PedidoController
 
             PedidoDAO dao = new PedidoDAO(); //alterar
             List<Pedido> objetos = dao.selecionar(); // alterar
-            Object colunas[] = new Object[6]; //alterar o índice de acordo com o número de campos exibidos 
+            Object colunas[] = new Object[5]; //alterar o índice de acordo com o número de campos exibidos 
             
             //MarcaDAO dao1 = new MarcaDAO();
             //List<Marca> obj = dao1.selecionar();
@@ -41,7 +41,7 @@ public class PedidoController
                     format = new SimpleDateFormat("dd/MM/yyyy HH:mm");
                     //System.out.println("aki:"+objeto.getData_hora());
                     colunas[2] = format.format(objeto.getData_hora());
-                    colunas[3] = objeto.getCodigo_fornecedor();
+                    colunas[3] = objeto.getNomeFornecedor();
                     colunas[4] = objeto.getDescricaoProduto();
                     
                     
@@ -68,8 +68,8 @@ public class PedidoController
     public static void AtualizaComboBoxProduto(JComboBox cbProduto)
     {
         cbProduto.removeAllItems();
-        ProdutoDAO dao = new ProdutoDAO();
-        for(Produto produto: dao.selecionar())
+        ProdutoDAO dao1 = new ProdutoDAO();
+        for(Produto produto: dao1.selecionar())
         {
             cbProduto.addItem(produto);
         }
@@ -166,6 +166,8 @@ public class PedidoController
         Integer numero = Integer.parseInt(tela.jtfNumero.getText().trim());
         Date previsao_entrega = Date.valueOf(tela.jtfPrevisao.getText().trim());
         Date data_hora = Date.valueOf(tela.jtfDataHora.getText().trim());
+        int codigo_fornecedor = ((Fornecedor)tela.jcbFornecedor.getSelectedItem()).getCodigo();
+        int codigo_produto = ((Produto)tela.jcbProduto.getSelectedItem()).getCodigo();
         
         //int codigo_marca = Integer.parseInt(tela.jcbMarca.getSelectedItem());
         
@@ -176,6 +178,8 @@ public class PedidoController
         objeto.setCodigo_fornecedor(numero); //na alteração tem que setar o código
         objeto.setPrevisao_entrega(previsao_entrega);
         objeto.setData_hora(data_hora);
+        objeto.setCodigo_fornecedor(codigo_fornecedor);
+        objeto.setCodigo_produto(codigo_produto);
        
       
 
@@ -248,10 +252,13 @@ public class PedidoController
         tela.jtfNumero.setText("");
         tela.jtfPrevisao.setText("");
         tela.jtfDataHora.setText("");
+        tela.jcbFornecedor.setSelectedIndex(0);
+        tela.jcbProduto.setSelectedIndex(0);
+                
 
         //habilitando/desabilitando os botões
         tela.jbtAdicionar.setEnabled(true);
-        tela.jbtAlterar.setEnabled(true);
-        tela.jbtExcluir.setEnabled(true);
+        tela.jbtAlterar.setEnabled(false);
+        tela.jbtExcluir.setEnabled(false);
     }
 }

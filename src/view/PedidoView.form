@@ -26,104 +26,94 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="284" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jbtAdicionar" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                      <Component id="jbtLimpar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jbtAlterar" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jbtExcluir" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="jcbProduto" pref="266" max="32767" attributes="0"/>
-                                          <Component id="jtfNumero" max="32767" attributes="0"/>
-                                          <Component id="jtfPrevisao" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jtfDataHora" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jcbFornecedor" alignment="0" pref="266" max="32767" attributes="0"/>
-                                      </Group>
+                                  <Component id="jtfPrevisao" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                  <Component id="jbtLimpar" min="-2" pref="122" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="jtfDataHora" alignment="0" pref="200" max="32767" attributes="0"/>
+                                      <Component id="jcbFornecedor" alignment="0" pref="200" max="32767" attributes="0"/>
+                                      <Component id="jcbProduto" alignment="0" pref="200" max="32767" attributes="0"/>
+                                      <Component id="jbtAdicionar" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                      <Component id="jbtAlterar" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                      <Component id="jbtExcluir" alignment="0" min="-2" pref="122" max="-2" attributes="0"/>
+                                      <Component id="jtfNumero" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="200" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" pref="592" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="530" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtfNumero" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jtfNumero" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jtfPrevisao" alignment="3" pref="30" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" pref="30" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jtfDataHora" alignment="3" pref="30" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" pref="29" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jcbFornecedor" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jcbProduto" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jbtAdicionar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jbtAlterar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jbtExcluir" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jbtLimpar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtfPrevisao" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jtfDataHora" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jcbFornecedor" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jcbProduto" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jbtAdicionar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jbtLimpar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jbtAlterar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jbtExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="226" max="-2" attributes="0"/>
-              <EmptySpace pref="104" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -131,6 +121,9 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Arial Rounded MT Bold" size="14" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="PEDIDO"/>
       </Properties>
       <AuxValues>
@@ -139,7 +132,10 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="NUMERO:"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Bahnschrift" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="N&#xda;MERO:"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -149,6 +145,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Bahnschrift" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="PREVIS&#xc3;O ENTREGA:"/>
       </Properties>
       <AuxValues>
@@ -157,6 +156,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Bahnschrift" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="DATA / HORA:"/>
       </Properties>
       <AuxValues>
@@ -164,6 +166,9 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfNumero">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtfNumeroActionPerformed"/>
       </Events>
@@ -192,6 +197,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jbtAdicionar">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Bahnschrift" size="14" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="ADICIONAR"/>
       </Properties>
       <Events>
@@ -203,6 +211,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jbtLimpar">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Bahnschrift" size="14" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="LIMPAR"/>
       </Properties>
       <Events>
@@ -214,6 +225,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jbtAlterar">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Bahnschrift" size="14" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="ALTERAR"/>
       </Properties>
       <Events>
@@ -225,6 +239,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="jbtExcluir">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Bahnschrift" size="14" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="EXCLUIR"/>
       </Properties>
       <Events>
@@ -244,16 +261,25 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="tabela">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Bahnschrift" size="12" style="0"/>
+            </Property>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="4">
-                <Column editable="true" title="N&#xda;MERO" type="java.lang.Object"/>
-                <Column editable="true" title="PREVIS&#xc3;O" type="java.lang.Object"/>
-                <Column editable="true" title="DATA/HORA" type="java.lang.Object"/>
-                <Column editable="true" title="FORNECEDOR" type="java.lang.Object"/>
+              <Table columnCount="5" rowCount="4">
+                <Column editable="false" title="N&#xda;MERO" type="java.lang.Object"/>
+                <Column editable="false" title="PREVIS&#xc3;O" type="java.lang.Object"/>
+                <Column editable="false" title="DATA/HORA" type="java.lang.Object"/>
+                <Column editable="false" title="FORNECEDOR" type="java.lang.Object"/>
+                <Column editable="false" title="PRODUTO" type="java.lang.Object"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
@@ -280,6 +306,9 @@
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tabelaMouseClicked"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -288,6 +317,9 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Bahnschrift" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="FORNECEDOR:"/>
       </Properties>
       <AuxValues>
@@ -310,6 +342,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Bahnschrift" size="12" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="PRODUTO"/>
       </Properties>
     </Component>
