@@ -263,7 +263,7 @@ public class ProdutoView extends javax.swing.JFrame {
                         .addGap(21, 21, 21))))
         );
 
-        pack();
+        setBounds(600, 250, 961, 541);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtAdicionarActionPerformed

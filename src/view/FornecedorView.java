@@ -195,7 +195,7 @@ public class FornecedorView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pack();
+        setBounds(600, 250, 775, 446);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtLimparActionPerformed

@@ -189,7 +189,7 @@ public class MarcaView extends javax.swing.JFrame {
                         .addGap(0, 19, Short.MAX_VALUE))))
         );
 
-        pack();
+        setBounds(600, 250, 718, 351);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtfDescricaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfDescricaoActionPerformed

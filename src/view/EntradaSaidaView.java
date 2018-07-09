@@ -169,7 +169,7 @@ public class EntradaSaidaView extends javax.swing.JFrame {
                 .addGap(33, 33, 33))
         );
 
-        pack();
+        setBounds(600, 250, 858, 351);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtfCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfCodigoActionPerformed
