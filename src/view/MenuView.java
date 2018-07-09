@@ -32,7 +32,6 @@ public class MenuView extends javax.swing.JFrame {
         jbtProduto = new javax.swing.JButton();
         jbtFornecedor = new javax.swing.JButton();
         jbtMarca = new javax.swing.JButton();
-        jbtPedido = new javax.swing.JButton();
         jbtEntradaSaida = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -65,14 +64,6 @@ public class MenuView extends javax.swing.JFrame {
             }
         });
 
-        jbtPedido.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
-        jbtPedido.setText("Pedidos");
-        jbtPedido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbtPedidoActionPerformed(evt);
-            }
-        });
-
         jbtEntradaSaida.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 14)); // NOI18N
         jbtEntradaSaida.setText("Entrada/Saída Produtos");
         jbtEntradaSaida.addActionListener(new java.awt.event.ActionListener() {
@@ -90,18 +81,13 @@ public class MenuView extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 200, Short.MAX_VALUE)
+                .addGap(0, 204, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jbtPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jbtEntradaSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbtFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbtProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(190, 190, 190))))
+                    .addComponent(jbtEntradaSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtFornecedor, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbtProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(190, 190, 190))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -116,9 +102,7 @@ public class MenuView extends javax.swing.JFrame {
                 .addComponent(jbtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jbtEntradaSaida, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jbtPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addContainerGap(143, Short.MAX_VALUE))
         );
 
         setBounds(320, 120, 640, 490);
@@ -149,12 +133,6 @@ public class MenuView extends javax.swing.JFrame {
         EntradaSaidaView obj = new EntradaSaidaView();
         obj.setVisible(true);
     }//GEN-LAST:event_jbtEntradaSaidaActionPerformed
-
-    private void jbtPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtPedidoActionPerformed
-        // TODO add your handling code here:
-        PedidoView obj = new PedidoView();
-        obj.setVisible(true);
-    }//GEN-LAST:event_jbtPedidoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,7 +174,6 @@ public class MenuView extends javax.swing.JFrame {
     private javax.swing.JButton jbtEntradaSaida;
     private javax.swing.JButton jbtFornecedor;
     private javax.swing.JButton jbtMarca;
-    private javax.swing.JButton jbtPedido;
     private javax.swing.JButton jbtProduto;
     // End of variables declaration//GEN-END:variables
 }

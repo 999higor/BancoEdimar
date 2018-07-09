@@ -27,7 +27,7 @@ public class PedidoController
 
             PedidoDAO dao = new PedidoDAO(); //alterar
             List<Pedido> objetos = dao.selecionar(); // alterar
-            Object colunas[] = new Object[5]; //alterar o índice de acordo com o número de campos exibidos 
+            Object colunas[] = new Object[7]; //alterar o índice de acordo com o número de campos exibidos 
             
             //MarcaDAO dao1 = new MarcaDAO();
             //List<Marca> obj = dao1.selecionar();
