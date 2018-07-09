@@ -124,17 +124,17 @@ public class PedidoView extends javax.swing.JFrame {
         tabela.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "NÚMERO", "PREVISÃO", "DATA/HORA", "FORNECEDOR", "PRODUTO"
+                "NÚMERO", "PREVISÃO", "DATA/HORA", "FORNECEDOR", "COD_FORNECEDOR", "PRODUTO", "COD_PRODUTO"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -199,7 +199,7 @@ public class PedidoView extends javax.swing.JFrame {
                         .addGap(129, 129, 129)
                         .addComponent(jLabel1)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 530, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 927, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -245,7 +245,7 @@ public class PedidoView extends javax.swing.JFrame {
                         .addContainerGap())))
         );
 
-        pack();
+        setBounds(400, 250, 1295, 524);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtfNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNumeroActionPerformed

@@ -86,4 +86,11 @@ public class Produto
     public void setBaixaEstoque(int baixaEstoque) {
         this.baixaEstoque = baixaEstoque;
     }
+
+    @Override
+    public String toString() {
+        return nome;
+    }
+    
+    
 }

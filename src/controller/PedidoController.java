@@ -42,7 +42,9 @@ public class PedidoController
                     //System.out.println("aki:"+objeto.getData_hora());
                     colunas[2] = format.format(objeto.getData_hora());
                     colunas[3] = objeto.getNomeFornecedor();
-                    colunas[4] = objeto.getDescricaoProduto();
+                    colunas[4] = objeto.getCodigo_fornecedor();
+                    colunas[5] = objeto.getDescricaoProduto();
+                    colunas[6] = objeto.getCodigo_produto();
                     
                     
                     model.addRow(colunas);
@@ -90,8 +92,8 @@ public class PedidoController
         String numero = tela.tabela.getValueAt(linhaSelecionada, 0).toString(); //está na coluna 0
         String previsao_entrega = tela.tabela.getValueAt(linhaSelecionada, 1).toString(); //está na coluna 1
         String data_hora = tela.tabela.getValueAt(linhaSelecionada, 2).toString(); //está na coluna 0        
-        int codigo_fornecedor = Integer.parseInt(tela.tabela.getValueAt(linhaSelecionada, 3).toString());
-        int codigo_produto = Integer.parseInt(tela.tabela.getValueAt(linhaSelecionada, 4).toString());
+        int codigo_fornecedor = Integer.parseInt(tela.tabela.getValueAt(linhaSelecionada, 4).toString());
+        int codigo_produto = Integer.parseInt(tela.tabela.getValueAt(linhaSelecionada, 6).toString());
         
         
 
