@@ -57,12 +57,11 @@ public class EntradaSaidaController
         }
         //alterar:: obtendo os valores preenchidos
         Integer codigo = Integer.parseInt(tela.jtfCodigo.getText().trim());
-       
-        //int estoque = Integer.parseInt(tela.jtfQuantidade.getText().trim());
+        int estoque = Integer.parseInt(tela.jtfQuantidade.getText().trim());
         //alterar:: criando objeto
         Produto objeto = new Produto();
         objeto.setCodigo(codigo); //na alteração tem que setar o código        
-        //objeto.setBaixaEstoque(estoque);
+        objeto.setBaixaEstoque(estoque);
 
         //alterar:: alterando o objeto no banco de dados
         EntradaSaidaDAO dao = new EntradaSaidaDAO(); //alterar
@@ -85,12 +84,11 @@ public class EntradaSaidaController
         }
         //alterar:: obtendo os valores preenchidos
         Integer codigo = Integer.parseInt(tela.jtfCodigo.getText().trim());
-       
-        //int estoque = Integer.parseInt(tela.jtfQuantidade.getText().trim());
+        int estoque = Integer.parseInt(tela.jtfQuantidade.getText().trim());
         //alterar:: criando objeto
         Produto objeto = new Produto();
         objeto.setCodigo(codigo); //na alteração tem que setar o código        
-        //objeto.setEntradaEstoque(estoque);
+        objeto.setEntradaEstoque(estoque);
 
         //alterar:: alterando o objeto no banco de dados
         EntradaSaidaDAO dao = new EntradaSaidaDAO(); //alterar
@@ -106,25 +104,7 @@ public class EntradaSaidaController
         }
     }
     
-    public static void altera_Estoque(EntradaSaidaView tela) {
-        //verificando se os campos estão preenchidos
-        if (!verificarCampos(tela)) {
-            return; //algum campo não está preenchido corretamente
-        }
-        //alterar:: obtendo os valores preenchidos
-        Integer codigo = Integer.parseInt(tela.jtfCodigo.getText().trim());
-       
-        int estoque = Integer.parseInt(tela.jtfQuantidade.getText().trim());
-        //alterar:: criando objeto
-        Produto objeto = new Produto();
-        objeto.setCodigo(codigo); //na alteração tem que setar o código        
-        objeto.setEntradaEstoque(estoque);
-
-        //alterar:: alterando o objeto no banco de dados
-        EntradaSaidaDAO dao = new EntradaSaidaDAO(); //alterar
-        boolean resultado = dao.altera_Estoque(objeto); //alterar
-
-    }
+   
     
     public static void atualizaCampos(EntradaSaidaView tela) {
         int linhaSelecionada = tela.tabela.getSelectedRow();

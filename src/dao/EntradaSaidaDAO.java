@@ -17,7 +17,7 @@ public class EntradaSaidaDAO
     {
         try {
             String sql = " UPDATE produto "
-                    + "    SET estoque = estoque - altera_estoque"
+                    + "    SET estoque = estoque - ?"
                     + "  WHERE codigo = ? "; //alterar tabela, atributos e chave primária
 
             PreparedStatement pstmt = Conexao.getConexao().prepareStatement(sql);
@@ -25,8 +25,8 @@ public class EntradaSaidaDAO
             //definindo as interrogações (uma linha para cada ? do SQL)
             
            
-            //pstmt.setInt(1, objeto.getBaixaEstoque());           
-            pstmt.setInt(1, objeto.getCodigo());
+            pstmt.setInt(1, objeto.getBaixaEstoque());           
+            pstmt.setInt(2, objeto.getCodigo());
 
             if (pstmt.executeUpdate() == 1) {
                 return true;
@@ -41,31 +41,7 @@ public class EntradaSaidaDAO
     {
         try {
             String sql = " UPDATE produto "
-                    + "    SET estoque = estoque + altera_estoque"
-                    + "    WHERE codigo = ? "; //alterar tabela, atributos e chave primária
-            
-            PreparedStatement pstmt = Conexao.getConexao().prepareStatement(sql);
-
-            //definindo as interrogações (uma linha para cada ? do SQL)
-            
-           
-            //pstmt.setInt(1, objeto.getEntradaEstoque());           
-            pstmt.setInt(1, objeto.getCodigo());
-
-            if (pstmt.executeUpdate() == 1) {
-                return true;
-            }
-        } catch (SQLException | ClassNotFoundException e) {
-            System.out.println(e.getMessage());
-        }
-        return false;
-    }
-    
-    public boolean altera_Estoque(Produto objeto) 
-    {
-        try {
-            String sql = " UPDATE produto "
-                    + "    SET altera_estoque = ?"
+                    + "    SET estoque = estoque + ?"
                     + "    WHERE codigo = ? "; //alterar tabela, atributos e chave primária
             
             PreparedStatement pstmt = Conexao.getConexao().prepareStatement(sql);
@@ -84,6 +60,8 @@ public class EntradaSaidaDAO
         }
         return false;
     }
+    
+    
     
     public List<Produto> selecionar() 
     {

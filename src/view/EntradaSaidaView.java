@@ -173,13 +173,13 @@ public class EntradaSaidaView extends javax.swing.JFrame {
 
     private void jbtEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtEntradaActionPerformed
         // TODO add your handling code here:
-        EntradaSaidaController.altera_Estoque(this);
+        //EntradaSaidaController.altera_Estoque(this);
         EntradaSaidaController.entradaEstoque(this);
     }//GEN-LAST:event_jbtEntradaActionPerformed
 
     private void jbtBaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtBaixaActionPerformed
         // TODO add your handling code here:
-        EntradaSaidaController.altera_Estoque(this);
+       // EntradaSaidaController.altera_Estoque(this);
         EntradaSaidaController.baixaEstoque(this);
     }//GEN-LAST:event_jbtBaixaActionPerformed
 
