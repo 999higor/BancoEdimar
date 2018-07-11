@@ -6,6 +6,7 @@
 package view;
 
 import controller.FornecedorController;
+import model.Marca;
 
 /**
  *
@@ -112,12 +113,16 @@ public class FornecedorView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabela.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tabela);
 
         jLabel5.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jLabel5.setText("MARCA:");
 
-        jcbMarca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jcbMarca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcbMarcaActionPerformed(evt);
@@ -224,6 +229,11 @@ public class FornecedorView extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jcbMarcaActionPerformed
 
+    private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
+        // TODO add your handling code here:
+        FornecedorController.atualizaCampos(this);
+    }//GEN-LAST:event_tabelaMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -270,7 +280,7 @@ public class FornecedorView extends javax.swing.JFrame {
     public javax.swing.JButton jbtAlterar;
     public javax.swing.JButton jbtExcluir;
     public javax.swing.JButton jbtLimpar;
-    public javax.swing.JComboBox<String> jcbMarca;
+    public javax.swing.JComboBox<Marca> jcbMarca;
     public javax.swing.JTextField jtfCodigo;
     public javax.swing.JTextField jtfNome_Fornecedor;
     public javax.swing.JTextField jtfTelefone;

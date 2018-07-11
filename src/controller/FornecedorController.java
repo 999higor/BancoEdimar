@@ -74,7 +74,7 @@ public class FornecedorController
         String codigo = tela.tabela.getValueAt(linhaSelecionada, 0).toString(); //está na coluna 0
         String nome_fonecedor = tela.tabela.getValueAt(linhaSelecionada, 1).toString(); //está na coluna 1
         String telefone = tela.tabela.getValueAt(linhaSelecionada, 2).toString(); //está na coluna 0
-        String codigo_marca = tela.tabela.getValueAt(linhaSelecionada, 3).toString();
+        int codigo_marca = Integer.parseInt(tela.tabela.getValueAt(linhaSelecionada, 4).toString());
         
         
 
@@ -83,7 +83,14 @@ public class FornecedorController
         tela.jtfNome_Fornecedor.setText(nome_fonecedor);
         tela.jtfTelefone.setText(telefone);
        
-        tela.jcbMarca.setSelectedItem(codigo_marca);
+        //tela.jcbMarca.setSelectedItem(codigo_marca);
+        for(int i=0; i<tela.jcbMarca.getItemCount();i++)
+        {
+            if (tela.jcbMarca.getItemAt(i).getCodigo() == codigo_marca){
+                tela.jcbMarca.setSelectedIndex(i);
+                break;
+            }
+        }
         
 
         // habilita/desabilita botões
@@ -134,6 +141,7 @@ public class FornecedorController
         Integer codigo = Integer.parseInt(tela.jtfCodigo.getText().trim());
         String nome_fornecedor = tela.jtfNome_Fornecedor.getText().trim();
         String telefone = tela.jtfTelefone.getText().trim();
+        int codigo_marca = ((Marca)tela.jcbMarca.getSelectedItem()).getCodigo();
         
         //int codigo_marca = Integer.parseInt(tela.jcbMarca.getSelectedItem());
         
@@ -144,6 +152,7 @@ public class FornecedorController
         objeto.setCodigo(codigo); //na alteração tem que setar o código
         objeto.setNome_fornecedor(nome_fornecedor);
         objeto.setTelefone(telefone);
+        objeto.setCodigo_marca(codigo_marca);
         
       
 

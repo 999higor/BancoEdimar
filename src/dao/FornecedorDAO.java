@@ -45,6 +45,7 @@ public class FornecedorDAO
             pstmt.setString(1, objeto.getNome_fornecedor());
             pstmt.setString(2, objeto.getTelefone());
             pstmt.setInt(3,objeto.getCodigo_marca());
+            pstmt.setInt(4, objeto.getCodigo());
 
             if (pstmt.executeUpdate() == 1) {
                 return true;

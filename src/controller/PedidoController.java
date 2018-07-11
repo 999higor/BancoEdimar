@@ -6,8 +6,11 @@ import dao.FornecedorDAO;
 import dao.PedidoDAO;
 import dao.ProdutoDAO;
 import java.sql.Date;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -166,8 +169,15 @@ public class PedidoController
         }
         //alterar:: obtendo os valores preenchidos
         Integer numero = Integer.parseInt(tela.jtfNumero.getText().trim());
-        Date previsao_entrega = Date.valueOf(tela.jtfPrevisao.getText().trim());
-        Date data_hora = Date.valueOf(tela.jtfDataHora.getText().trim());
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        Date previsao_entrega;
+         try {
+             previsao_entrega = new java.sql.Date(format.parse(tela.jtfPrevisao.getText().trim()).getTime());
+         } catch (ParseException ex) {
+             Logger.getLogger(PedidoController.class.getName()).log(Level.SEVERE, null, ex);
+             return;
+         }
+        //Date data_hora = Date.valueOf(tela.jtfDataHora.getText().trim());
         int codigo_fornecedor = ((Fornecedor)tela.jcbFornecedor.getSelectedItem()).getCodigo();
         int codigo_produto = ((Produto)tela.jcbProduto.getSelectedItem()).getCodigo();
         
@@ -177,9 +187,9 @@ public class PedidoController
 
         //alterar:: criando objeto
         Pedido objeto = new Pedido();
-        objeto.setCodigo_fornecedor(numero); //na alteração tem que setar o código
+        objeto.setNumero(numero); //na alteração tem que setar o código
         objeto.setPrevisao_entrega(previsao_entrega);
-        objeto.setData_hora(data_hora);
+        //objeto.setData_hora(data_hora);
         objeto.setCodigo_fornecedor(codigo_fornecedor);
         objeto.setCodigo_produto(codigo_produto);
        

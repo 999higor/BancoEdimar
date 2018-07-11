@@ -46,6 +46,7 @@ public class PedidoDAO
            // pstmt.setDate(2, objeto.getData_hora());
             pstmt.setInt(2,objeto.getCodigo_fornecedor());
             pstmt.setInt(3,objeto.getCodigo_produto());
+            pstmt.setInt(4, objeto.getNumero());
 
             if (pstmt.executeUpdate() == 1) {
                 return true;
